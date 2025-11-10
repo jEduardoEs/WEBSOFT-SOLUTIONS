@@ -1,0 +1,14 @@
+node_modules/
+.env
+.env.local
+client/node_modules/
+client/dist/
+client/.vite/
+server/node_modules/
+server/orders/*.pdf
+server/orders/order-log.json
+server/orders/order-log.json.bak
+server/orders/confirmations/*.pdf
+!server/orders/.gitkeep
+!server/orders/confirmations/.gitkeep
+.DS_Store
