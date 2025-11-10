@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+
 :root {
   color-scheme: light;
   font-family: 'Inter', 'Segoe UI', system-ui, sans-serif;
@@ -34,6 +36,15 @@ main {
 
 section {
   width: 100%;
+}
+
+header {
+  position: sticky;
+  top: 0;
+  backdrop-filter: blur(12px);
+  background: rgba(2, 6, 23, 0.65);
+  border-bottom: 1px solid rgba(148, 163, 184, 0.2);
+  z-index: 20;
 }
 
 .container {
@@ -84,6 +95,7 @@ section {
   align-items: center;
   justify-content: center;
   gap: 0.5rem;
+  cursor: pointer;
 }
 
 .button-primary {
@@ -231,60 +243,6 @@ section {
   color: #38bdf8;
 }
 
-.dashboard-layout {
-  padding: 4rem 0;
-  color: #e2e8f0;
-}
-
-.dashboard-grid {
-  display: grid;
-  gap: 2rem;
-}
-
-.dashboard-section {
-  background: rgba(15, 23, 42, 0.7);
-  border-radius: 1.25rem;
-  padding: 2rem;
-  border: 1px solid rgba(148, 163, 184, 0.2);
-  display: grid;
-  gap: 1rem;
-}
-
-.dashboard-section h2 {
-  margin: 0;
-  font-size: 1.75rem;
-  color: #bfdbfe;
-}
-
-.metrics-grid {
-  display: grid;
-  gap: 1rem;
-  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-}
-
-.metric-card {
-  background: rgba(30, 64, 175, 0.3);
-  border-radius: 1rem;
-  padding: 1.25rem;
-  border: 1px solid rgba(59, 130, 246, 0.25);
-  display: grid;
-  gap: 0.35rem;
-}
-
-.metric-card span {
-  font-size: 0.85rem;
-  color: #cbd5f5;
-}
-
-.metric-card strong {
-  font-size: 1.5rem;
-  color: #f8fafc;
-}
-
-.metric-card small {
-  color: #bfdbfe;
-}
-
 footer {
   padding: 3rem 0;
   color: #cbd5f5;
@@ -295,6 +253,20 @@ footer {
 
 footer p {
   margin: 0.35rem 0;
+}
+
+nav a {
+  color: #e2e8f0;
+  font-weight: 600;
+}
+
+nav a:hover {
+  color: #60a5fa;
+}
+
+nav .menu {
+  display: flex;
+  gap: 1rem;
 }
 
 @media (max-width: 768px) {
@@ -314,5 +286,15 @@ footer p {
   .button-secondary {
     flex: 1;
     justify-content: center;
+  }
+
+  header nav {
+    flex-direction: column;
+    gap: 1.5rem;
+    align-items: flex-start;
+  }
+
+  nav .menu {
+    flex-wrap: wrap;
   }
 }
