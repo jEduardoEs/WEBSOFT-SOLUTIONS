@@ -1,0 +1,417 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Previsualización · WEBSOFT SOLUTIONS</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <header>
+      <div class="container" style="padding: 1.5rem 1.5rem 1rem;">
+        <nav style="display: flex; align-items: center; justify-content: space-between; color: #e2e8f0; gap: 1.5rem;">
+          <div style="display: flex; align-items: center; gap: 0.75rem;">
+            <div
+              style="width: 44px; height: 44px; border-radius: 14px; background: linear-gradient(135deg, #1d4ed8, #38bdf8); display: grid; place-items: center; font-weight: 700; color: #0b1120; font-size: 1.05rem;"
+            >
+              WS
+            </div>
+            <div>
+              <strong id="company-name" style="font-size: 1.25rem;"></strong>
+              <p id="company-tagline" style="margin: 0; color: #94a3b8;"></p>
+            </div>
+          </div>
+          <div class="menu">
+            <a href="#productos">Productos</a>
+            <a href="#servicios">Servicios</a>
+            <a href="#roles">Roles</a>
+            <a href="#contacto">Contacto</a>
+          </div>
+        </nav>
+      </div>
+    </header>
+
+    <main>
+      <section class="hero">
+        <div class="container">
+          <div class="card">
+            <span class="badge">Plataforma integral B2B</span>
+            <h1>
+              Elevamos tu negocio con soluciones tecnológicas, comercio electrónico y operaciones centralizadas.
+            </h1>
+            <p id="company-mission"></p>
+            <div class="cta-group">
+              <a class="button-primary" href="#roles">Explorar plataforma</a>
+              <a class="button-secondary" href="#contacto">Habla con un experto</a>
+            </div>
+            <ul id="hero-highlights" style="margin: 0; padding-left: 1.25rem; color: #cbd5f5;"></ul>
+          </div>
+        </div>
+      </section>
+
+      <section id="productos">
+        <div class="container">
+          <h2 class="section-title">Soluciones destacadas</h2>
+          <div class="card-grid" id="product-grid"></div>
+        </div>
+      </section>
+
+      <section id="servicios">
+        <div class="container">
+          <h2 class="section-title">Servicios profesionales</h2>
+          <div class="card-grid" id="service-grid"></div>
+        </div>
+      </section>
+
+      <section id="roles">
+        <div class="container">
+          <h2 class="section-title">Roles y accesos escalables</h2>
+          <div class="role-switcher">
+            <div class="role-tabs" id="role-tabs"></div>
+            <div>
+              <h3 id="role-description" style="margin-bottom: 0.35rem; color: #1d4ed8;"></h3>
+              <ul class="role-capabilities" id="role-capabilities"></ul>
+              <div style="margin-top: 1.5rem; display: flex; gap: 1rem; flex-wrap: wrap;">
+                <a class="button-primary" id="role-link" href="#">Ver experiencia</a>
+                <a class="button-secondary" href="#contacto">Solicitar demo personalizada</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section>
+        <div class="container">
+          <h2 class="section-title">Testimonios de clientes</h2>
+          <div class="testimonials" id="testimonial-grid"></div>
+        </div>
+      </section>
+
+      <section>
+        <div class="container">
+          <h2 class="section-title">Aliados estratégicos</h2>
+          <div
+            id="partner-grid"
+            style="display: grid; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); gap: 1rem;"
+          ></div>
+        </div>
+      </section>
+
+      <section id="contacto" style="padding-bottom: 4rem;">
+        <div class="container">
+          <h2 class="section-title">Conversemos sobre tu proyecto</h2>
+          <div class="card" style="background: rgba(248, 250, 252, 0.96); color: #0f172a;">
+            <p style="margin: 0;" id="contact-email"></p>
+            <p style="margin: 0;" id="contact-cta"></p>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <div class="container">
+        <p id="footer-copy"></p>
+        <p>Soluciones web, servicios administrados y experiencias digitales de alto impacto.</p>
+      </div>
+    </footer>
+
+    <script>
+      const heroHighlights = [
+        'Consultoría y soluciones tecnológicas de clase mundial',
+        'Implementaciones rápidas con soporte 24/7',
+        'Paneles inteligentes para administradores y empleados',
+      ];
+
+      const companyProfile = {
+        name: 'WEBSOFT SOLUTIONS',
+        tagline: 'Tecnología inteligente para negocios ambiciosos',
+        mission:
+          'Diseñar, implementar y acompañar soluciones tecnológicas que potencien el crecimiento digital de nuestros clientes.',
+        contactEmail: 'contacto@websoftsolutions.com',
+        phone: '+52 55 0000 0000',
+        address: 'Av. Innovación 123, Ciudad de México, CDMX',
+      };
+
+      const catalogProducts = [
+        {
+          id: 'prod-cloud-suite',
+          name: 'Cloud Suite Empresarial',
+          description: 'Infraestructura en la nube escalable con monitoreo 24/7 y soporte premium.',
+          price: 149.99,
+          currency: 'USD',
+          tags: ['cloud', 'infraestructura', 'soporte'],
+          featured: true,
+        },
+        {
+          id: 'prod-cyber-protect',
+          name: 'CyberProtect 360',
+          description: 'Paquete integral de ciberseguridad con respuesta a incidentes y capacitación.',
+          price: 89.99,
+          currency: 'USD',
+          tags: ['seguridad', 'capacitacion'],
+        },
+        {
+          id: 'prod-analytics-ai',
+          name: 'Analytics AI Insights',
+          description: 'Plataforma de analítica con dashboards personalizados y modelos predictivos.',
+          price: 199.0,
+          currency: 'USD',
+          tags: ['analitica', 'ia'],
+        },
+      ];
+
+      const catalogServices = [
+        {
+          id: 'serv-transformacion',
+          name: 'Transformación Digital 360°',
+          description: 'Consultoría para mapear procesos, implementar herramientas y capacitar equipos en adopción digital.',
+          category: 'consultoría',
+          price: 2499,
+          currency: 'USD',
+          billingCycle: 'Pago único',
+          highlights: ['Assessment inicial', 'Roadmap estratégico', 'Capacitación ejecutiva'],
+        },
+        {
+          id: 'serv-mantenimiento',
+          name: 'Mantenimiento Preventivo TI',
+          description: 'Supervisión periódica de infraestructura, parches de seguridad y monitoreo proactivo.',
+          category: 'mantenimiento',
+          price: 499,
+          currency: 'USD',
+          billingCycle: 'Plan mensual',
+          highlights: ['Monitoreo 24/7', 'Gestión de parches', 'Reportes mensuales'],
+        },
+        {
+          id: 'serv-fabrica-software',
+          name: 'Fábrica de Software Ágil',
+          description: 'Equipo dedicado de desarrollo para construir y evolucionar productos digitales.',
+          category: 'desarrollo',
+          price: 3499,
+          currency: 'USD',
+          billingCycle: 'Plan mensual',
+          highlights: ['Squad dedicado', 'Scrum Masters certificados', 'Deploy continuo'],
+        },
+      ];
+
+      const testimonials = [
+        {
+          id: 'test-1',
+          name: 'Laura Sánchez',
+          role: 'Directora de Operaciones - Fintech MX',
+          quote:
+            'WebSoft Solutions transformó nuestro backoffice en tres meses. Ahora operamos con datos en tiempo real y un equipo alineado.',
+        },
+        {
+          id: 'test-2',
+          name: 'Carlos Rivera',
+          role: 'CEO - RetailNow',
+          quote:
+            'El POS y la reportería que implementaron nos permitió duplicar las ventas y entender mejor a nuestros clientes.',
+        },
+        {
+          id: 'test-3',
+          name: 'Mariana López',
+          role: 'CTO - HealthCare 4.0',
+          quote:
+            'Su equipo nos acompaña día a día con monitoreo proactivo y soporte especializado. Son nuestros socios tecnológicos.',
+        },
+      ];
+
+      const partners = [
+        { id: 'partner-aws', name: 'AWS Advanced Partner' },
+        { id: 'partner-microsoft', name: 'Microsoft Solutions' },
+        { id: 'partner-google', name: 'Google Cloud Build' },
+        { id: 'partner-stripe', name: 'Stripe Verified Partner' },
+      ];
+
+      const rolePermissions = [
+        {
+          role: 'guest',
+          description: 'Visitante explorando el catálogo público.',
+          capabilities: [
+            'Explorar landing page',
+            'Consultar catálogo de productos y servicios',
+            'Enviar formulario de contacto',
+          ],
+        },
+        {
+          role: 'customer',
+          description: 'Cliente autenticado con beneficios adicionales.',
+          capabilities: [
+            'Gestionar carrito y compras',
+            'Descargar facturas y seguimiento de órdenes',
+            'Acceso a soporte prioritario',
+          ],
+        },
+        {
+          role: 'employee',
+          description: 'Colaborador encargado de ventas y facturación.',
+          capabilities: [
+            'Acceder al POS y registrar ventas',
+            'Generar facturación y notas de crédito',
+            'Visualizar catálogo interno con precios especiales',
+          ],
+        },
+        {
+          role: 'admin',
+          description: 'Administrador con acceso a reportes y gestión operativa.',
+          capabilities: [
+            'Crear y actualizar productos y servicios',
+            'Supervisar ventas, inventario y métricas clave',
+            'Gestionar usuarios, roles y promociones',
+          ],
+        },
+        {
+          role: 'superadmin',
+          description: 'Responsable de la configuración global y auditoría.',
+          capabilities: [
+            'Asignar roles avanzados y permisos',
+            'Auditar actividad y seguridad',
+            'Administrar integraciones críticas y respaldos',
+          ],
+        },
+      ];
+
+      function formatCurrency(value, currency) {
+        return new Intl.NumberFormat('es-MX', {
+          style: 'currency',
+          currency,
+          minimumFractionDigits: 2,
+        }).format(value);
+      }
+
+      function populateHero() {
+        document.getElementById('company-name').textContent = companyProfile.name;
+        document.getElementById('company-tagline').textContent = companyProfile.tagline;
+        document.getElementById('company-mission').textContent = companyProfile.mission;
+
+        const list = document.getElementById('hero-highlights');
+        heroHighlights.forEach((item) => {
+          const li = document.createElement('li');
+          li.textContent = item;
+          list.appendChild(li);
+        });
+      }
+
+      function populateProducts() {
+        const grid = document.getElementById('product-grid');
+        catalogProducts.forEach((product) => {
+          const article = document.createElement('article');
+          article.className = 'card';
+          article.innerHTML = `
+            <span class="badge">${product.featured ? 'Recomendado' : 'Disponible'}</span>
+            <h3>${product.name}</h3>
+            <p>${product.description}</p>
+            <strong style="font-size: 1.15rem; color: #1d4ed8;">${formatCurrency(product.price, product.currency)}</strong>
+            ${
+              product.tags
+                ? `<div class="tag-list">${product.tags
+                    .map((tag) => `<span class="tag">#${tag}</span>`)
+                    .join('')}</div>`
+                : ''
+            }
+          `;
+          grid.appendChild(article);
+        });
+      }
+
+      function populateServices() {
+        const grid = document.getElementById('service-grid');
+        catalogServices.forEach((service) => {
+          const article = document.createElement('article');
+          article.className = 'card';
+          article.innerHTML = `
+            <span class="badge">${service.category.toUpperCase()}</span>
+            <h3>${service.name}</h3>
+            <p>${service.description}</p>
+            <strong style="color: #0f172a;">${formatCurrency(service.price, service.currency)} · ${service.billingCycle}</strong>
+            <ul style="margin: 0; padding-left: 1.25rem; color: #1f2937;">
+              ${service.highlights.map((highlight) => `<li>${highlight}</li>`).join('')}
+            </ul>
+          `;
+          grid.appendChild(article);
+        });
+      }
+
+      function populateTestimonials() {
+        const grid = document.getElementById('testimonial-grid');
+        testimonials.forEach((testimonial) => {
+          const article = document.createElement('article');
+          article.className = 'testimonial-card';
+          article.innerHTML = `
+            <p>“${testimonial.quote}”</p>
+            <div>
+              <strong>${testimonial.name}</strong>
+              <p style="margin: 0; color: #cbd5f5;">${testimonial.role}</p>
+            </div>
+          `;
+          grid.appendChild(article);
+        });
+      }
+
+      function populatePartners() {
+        const grid = document.getElementById('partner-grid');
+        partners.forEach((partner) => {
+          const div = document.createElement('div');
+          div.textContent = partner.name;
+          div.style.padding = '1rem 1.5rem';
+          div.style.borderRadius = '1rem';
+          div.style.background = 'rgba(15, 23, 42, 0.65)';
+          div.style.border = '1px solid rgba(148, 163, 184, 0.2)';
+          div.style.color = '#cbd5f5';
+          div.style.textAlign = 'center';
+          div.style.fontWeight = '600';
+          div.style.letterSpacing = '0.03em';
+          grid.appendChild(div);
+        });
+      }
+
+      function populateContact() {
+        document.getElementById('contact-email').innerHTML = `Escríbenos a <a href="mailto:${companyProfile.contactEmail}">${companyProfile.contactEmail}</a> o llámanos al <strong>${companyProfile.phone}</strong>.`;
+        document.getElementById('contact-cta').textContent = `¿Listo para avanzar? Solicita tu demo y recibe un plan a la medida que incluya e-commerce, POS, facturación y dashboards ejecutivos. Estamos en ${companyProfile.address}.`;
+        document.getElementById('footer-copy').textContent = `© ${new Date().getFullYear()} ${companyProfile.name}. Todos los derechos reservados.`;
+      }
+
+      function setupRoles() {
+        const tabs = document.getElementById('role-tabs');
+        const description = document.getElementById('role-description');
+        const list = document.getElementById('role-capabilities');
+        const link = document.getElementById('role-link');
+
+        function renderRole(role) {
+          description.textContent = role.description;
+          link.href = `#dashboard-${role.role}`;
+          list.innerHTML = '';
+          role.capabilities.forEach((capability) => {
+            const li = document.createElement('li');
+            li.textContent = capability;
+            list.appendChild(li);
+          });
+        }
+
+        rolePermissions.forEach((role, index) => {
+          const button = document.createElement('button');
+          button.type = 'button';
+          button.className = `role-tab${index === 1 ? ' active' : ''}`;
+          button.textContent = role.role.toUpperCase();
+          button.addEventListener('click', () => {
+            Array.from(tabs.children).forEach((child) => child.classList.remove('active'));
+            button.classList.add('active');
+            renderRole(role);
+          });
+          tabs.appendChild(button);
+        });
+
+        renderRole(rolePermissions[1]);
+      }
+
+      populateHero();
+      populateProducts();
+      populateServices();
+      populateTestimonials();
+      populatePartners();
+      populateContact();
+      setupRoles();
+    </script>
+  </body>
+</html>
