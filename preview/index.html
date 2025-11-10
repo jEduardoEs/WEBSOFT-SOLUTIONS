@@ -3,415 +3,519 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Previsualización · WEBSOFT SOLUTIONS</title>
+    <title>Previsualización · Congreso de Tecnología 2024</title>
     <link rel="stylesheet" href="styles.css" />
   </head>
   <body>
-    <header>
-      <div class="container" style="padding: 1.5rem 1.5rem 1rem;">
-        <nav style="display: flex; align-items: center; justify-content: space-between; color: #e2e8f0; gap: 1.5rem;">
-          <div style="display: flex; align-items: center; gap: 0.75rem;">
-            <div
-              style="width: 44px; height: 44px; border-radius: 14px; background: linear-gradient(135deg, #1d4ed8, #38bdf8); display: grid; place-items: center; font-weight: 700; color: #0b1120; font-size: 1.05rem;"
-            >
-              WS
-            </div>
+    <header class="site-header">
+      <div class="container">
+        <nav class="nav">
+          <div class="brand">
+            <span class="brand-mark">CT</span>
             <div>
-              <strong id="company-name" style="font-size: 1.25rem;"></strong>
-              <p id="company-tagline" style="margin: 0; color: #94a3b8;"></p>
+              <p class="brand-eyebrow">12 · 13 · 14 septiembre · CDMX</p>
+              <strong>Congreso de Tecnología 2024</strong>
             </div>
           </div>
-          <div class="menu">
-            <a href="#productos">Productos</a>
-            <a href="#servicios">Servicios</a>
-            <a href="#roles">Roles</a>
-            <a href="#contacto">Contacto</a>
+          <div class="nav-links">
+            <a href="#agenda">Agenda</a>
+            <a href="#ponentes">Ponentes</a>
+            <a href="#patrocinadores">Patrocinadores</a>
+            <a href="#faq">FAQ</a>
           </div>
+          <a class="button-primary nav-cta" href="#registro">Adquiere tu pase</a>
         </nav>
       </div>
     </header>
 
-    <main>
-      <section class="hero">
-        <div class="container">
-          <div class="card">
-            <span class="badge">Plataforma integral B2B</span>
-            <h1>
-              Elevamos tu negocio con soluciones tecnológicas, comercio electrónico y operaciones centralizadas.
-            </h1>
-            <p id="company-mission"></p>
+    <main class="landing-page">
+      <section class="hero" id="inicio">
+        <div class="container hero-content">
+          <div class="hero-copy glass-card">
+            <span class="hero-badge">La cita más grande de innovación en habla hispana</span>
+            <h1>Impulsa tu organización con estrategias, alianzas y tecnología listas para implementar hoy.</h1>
+            <p>
+              Vive tres días de keynotes, talleres prácticos y experiencias inmersivas diseñadas para líderes que
+              transforman el futuro digital de sus empresas.
+            </p>
             <div class="cta-group">
-              <a class="button-primary" href="#roles">Explorar plataforma</a>
-              <a class="button-secondary" href="#contacto">Habla con un experto</a>
+              <a class="button-primary" href="#agenda">Ver agenda destacada</a>
+              <a class="button-secondary" href="mailto:registro@congresotecnologia.com">Solicitar información</a>
             </div>
-            <ul id="hero-highlights" style="margin: 0; padding-left: 1.25rem; color: #cbd5f5;"></ul>
+            <ul class="hero-list" id="hero-list"></ul>
           </div>
-        </div>
-      </section>
-
-      <section id="productos">
-        <div class="container">
-          <h2 class="section-title">Soluciones destacadas</h2>
-          <div class="card-grid" id="product-grid"></div>
-        </div>
-      </section>
-
-      <section id="servicios">
-        <div class="container">
-          <h2 class="section-title">Servicios profesionales</h2>
-          <div class="card-grid" id="service-grid"></div>
-        </div>
-      </section>
-
-      <section id="roles">
-        <div class="container">
-          <h2 class="section-title">Roles y accesos escalables</h2>
-          <div class="role-switcher">
-            <div class="role-tabs" id="role-tabs"></div>
-            <div>
-              <h3 id="role-description" style="margin-bottom: 0.35rem; color: #1d4ed8;"></h3>
-              <ul class="role-capabilities" id="role-capabilities"></ul>
-              <div style="margin-top: 1.5rem; display: flex; gap: 1rem; flex-wrap: wrap;">
-                <a class="button-primary" id="role-link" href="#">Ver experiencia</a>
-                <a class="button-secondary" href="#contacto">Solicitar demo personalizada</a>
-              </div>
+          <div class="hero-stats">
+            <div class="stat-grid" id="stat-grid"></div>
+            <div class="hero-note glass-card">
+              <p>
+                Regístrate antes del <strong>31 de julio</strong> y obtén acceso prioritario a mentorías especializadas y la
+                app oficial del evento.
+              </p>
             </div>
           </div>
         </div>
       </section>
 
-      <section>
+      <section class="section" id="experiencia">
         <div class="container">
-          <h2 class="section-title">Testimonios de clientes</h2>
-          <div class="testimonials" id="testimonial-grid"></div>
+          <div class="section-heading">
+            <h2>Una experiencia diseñada para acelerar tu transformación</h2>
+            <p>
+              Cada espacio del congreso está pensado para que regreses con un plan claro, aliados estratégicos y
+              soluciones validadas por expertos internacionales.
+            </p>
+          </div>
+          <div class="feature-grid" id="feature-grid"></div>
         </div>
       </section>
 
-      <section>
-        <div class="container">
-          <h2 class="section-title">Aliados estratégicos</h2>
-          <div
-            id="partner-grid"
-            style="display: grid; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); gap: 1rem;"
-          ></div>
+      <section class="section" id="agenda">
+        <div class="container agenda">
+          <div class="section-heading">
+            <h2>Agenda destacada</h2>
+            <p>
+              Inspírate con líderes globales, talleres prácticos y espacios diseñados para crear alianzas de alto impacto.
+            </p>
+          </div>
+          <div class="agenda-tabs" id="agenda-tabs"></div>
+          <div class="agenda-highlight glass-card">
+            <h3 id="agenda-theme"></h3>
+            <p class="agenda-date" id="agenda-date"></p>
+            <ul id="agenda-sessions"></ul>
+            <div class="agenda-cta">
+              <a class="button-secondary" href="#registro">Descargar agenda completa</a>
+            </div>
+          </div>
         </div>
       </section>
 
-      <section id="contacto" style="padding-bottom: 4rem;">
+      <section class="section" id="ponentes">
         <div class="container">
-          <h2 class="section-title">Conversemos sobre tu proyecto</h2>
-          <div class="card" style="background: rgba(248, 250, 252, 0.96); color: #0f172a;">
-            <p style="margin: 0;" id="contact-email"></p>
-            <p style="margin: 0;" id="contact-cta"></p>
+          <div class="section-heading">
+            <h2>Ponentes confirmados</h2>
+            <p>
+              Conoce a las voces que están definiendo el rumbo de la innovación tecnológica en la región y el mundo.
+            </p>
+          </div>
+          <div class="speaker-grid" id="speaker-grid"></div>
+        </div>
+      </section>
+
+      <section class="section" id="patrocinadores">
+        <div class="container">
+          <div class="section-heading">
+            <h2>Patrocinadores y aliados</h2>
+            <p>
+              Gracias a las organizaciones que hacen posible el Congreso de Tecnología 2024 y apoyan la innovación de la
+              región.
+            </p>
+          </div>
+          <div class="sponsor-grid" id="sponsor-grid"></div>
+        </div>
+      </section>
+
+      <section class="section" id="faq">
+        <div class="container faq">
+          <div class="section-heading">
+            <h2>Preguntas frecuentes</h2>
+            <p>Resuelve las dudas más comunes antes de asegurar tu lugar en el congreso.</p>
+          </div>
+          <div class="faq-list" id="faq-list"></div>
+        </div>
+      </section>
+
+      <section class="section" id="registro">
+        <div class="container final-cta glass-card">
+          <div>
+            <h2>Reserva tu pase hoy</h2>
+            <p>
+              Aparta tu lugar para el Congreso de Tecnología 2024 y accede a preventas exclusivas, mentorías y la
+              comunidad digital de líderes que están transformando Latinoamérica.
+            </p>
+          </div>
+          <div class="final-cta-actions">
+            <a class="button-primary" href="https://congresotecnologia.com/registro" target="_blank" rel="noreferrer"
+              >Comprar entradas</a
+            >
+            <a class="button-secondary" href="mailto:registro@congresotecnologia.com">Solicitar paquete corporativo</a>
           </div>
         </div>
       </section>
     </main>
 
-    <footer>
+    <footer class="site-footer">
       <div class="container">
-        <p id="footer-copy"></p>
-        <p>Soluciones web, servicios administrados y experiencias digitales de alto impacto.</p>
+        <p>© <span id="year"></span> Congreso de Tecnología. Todos los derechos reservados.</p>
+        <p>Organiza: Comité de Innovación LATAM · contacto@congresotecnologia.com</p>
       </div>
     </footer>
 
     <script>
       const heroHighlights = [
-        'Consultoría y soluciones tecnológicas de clase mundial',
-        'Implementaciones rápidas con soporte 24/7',
-        'Paneles inteligentes para administradores y empleados',
+        '3 días de inmersión total en innovación tecnológica y transformación digital',
+        'Más de 30 speakers internacionales compartiendo casos de éxito',
+        'Espacios de networking, mentorías y experiencias interactivas',
       ];
 
-      const companyProfile = {
-        name: 'WEBSOFT SOLUTIONS',
-        tagline: 'Tecnología inteligente para negocios ambiciosos',
-        mission:
-          'Diseñar, implementar y acompañar soluciones tecnológicas que potencien el crecimiento digital de nuestros clientes.',
-        contactEmail: 'contacto@websoftsolutions.com',
-        phone: '+52 55 0000 0000',
-        address: 'Av. Innovación 123, Ciudad de México, CDMX',
-      };
+      const stats = [
+        { value: '3', label: 'Escenarios en simultáneo' },
+        { value: '+2K', label: 'Asistentes esperados' },
+        { value: '40', label: 'Charlas y workshops' },
+        { value: '15', label: 'Países representados' },
+      ];
 
-      const catalogProducts = [
+      const experienceHighlights = [
         {
-          id: 'prod-cloud-suite',
-          name: 'Cloud Suite Empresarial',
-          description: 'Infraestructura en la nube escalable con monitoreo 24/7 y soporte premium.',
-          price: 149.99,
-          currency: 'USD',
-          tags: ['cloud', 'infraestructura', 'soporte'],
-          featured: true,
+          title: 'Zona de experiencias inmersivas',
+          description:
+            'Interactúa con laboratorios de realidad aumentada, simuladores industriales y demos guiados por expertos.',
         },
         {
-          id: 'prod-cyber-protect',
-          name: 'CyberProtect 360',
-          description: 'Paquete integral de ciberseguridad con respuesta a incidentes y capacitación.',
-          price: 89.99,
-          currency: 'USD',
-          tags: ['seguridad', 'capacitacion'],
+          title: 'Mentorías uno a uno',
+          description:
+            'Reserva sesiones personalizadas con especialistas en estrategia, producto, data y cultura de innovación.',
         },
         {
-          id: 'prod-analytics-ai',
-          name: 'Analytics AI Insights',
-          description: 'Plataforma de analítica con dashboards personalizados y modelos predictivos.',
-          price: 199.0,
-          currency: 'USD',
-          tags: ['analitica', 'ia'],
+          title: 'Red de negocios',
+          description:
+            'Conecta con líderes, startups y corporativos en espacios diseñados para impulsar alianzas clave.',
         },
       ];
 
-      const catalogServices = [
+      const agendaDays = [
         {
-          id: 'serv-transformacion',
-          name: 'Transformación Digital 360°',
-          description: 'Consultoría para mapear procesos, implementar herramientas y capacitar equipos en adopción digital.',
-          category: 'consultoría',
-          price: 2499,
-          currency: 'USD',
-          billingCycle: 'Pago único',
-          highlights: ['Assessment inicial', 'Roadmap estratégico', 'Capacitación ejecutiva'],
-        },
-        {
-          id: 'serv-mantenimiento',
-          name: 'Mantenimiento Preventivo TI',
-          description: 'Supervisión periódica de infraestructura, parches de seguridad y monitoreo proactivo.',
-          category: 'mantenimiento',
-          price: 499,
-          currency: 'USD',
-          billingCycle: 'Plan mensual',
-          highlights: ['Monitoreo 24/7', 'Gestión de parches', 'Reportes mensuales'],
-        },
-        {
-          id: 'serv-fabrica-software',
-          name: 'Fábrica de Software Ágil',
-          description: 'Equipo dedicado de desarrollo para construir y evolucionar productos digitales.',
-          category: 'desarrollo',
-          price: 3499,
-          currency: 'USD',
-          billingCycle: 'Plan mensual',
-          highlights: ['Squad dedicado', 'Scrum Masters certificados', 'Deploy continuo'],
-        },
-      ];
-
-      const testimonials = [
-        {
-          id: 'test-1',
-          name: 'Laura Sánchez',
-          role: 'Directora de Operaciones - Fintech MX',
-          quote:
-            'WebSoft Solutions transformó nuestro backoffice en tres meses. Ahora operamos con datos en tiempo real y un equipo alineado.',
-        },
-        {
-          id: 'test-2',
-          name: 'Carlos Rivera',
-          role: 'CEO - RetailNow',
-          quote:
-            'El POS y la reportería que implementaron nos permitió duplicar las ventas y entender mejor a nuestros clientes.',
-        },
-        {
-          id: 'test-3',
-          name: 'Mariana López',
-          role: 'CTO - HealthCare 4.0',
-          quote:
-            'Su equipo nos acompaña día a día con monitoreo proactivo y soporte especializado. Son nuestros socios tecnológicos.',
-        },
-      ];
-
-      const partners = [
-        { id: 'partner-aws', name: 'AWS Advanced Partner' },
-        { id: 'partner-microsoft', name: 'Microsoft Solutions' },
-        { id: 'partner-google', name: 'Google Cloud Build' },
-        { id: 'partner-stripe', name: 'Stripe Verified Partner' },
-      ];
-
-      const rolePermissions = [
-        {
-          role: 'guest',
-          description: 'Visitante explorando el catálogo público.',
-          capabilities: [
-            'Explorar landing page',
-            'Consultar catálogo de productos y servicios',
-            'Enviar formulario de contacto',
+          id: 'dia-1',
+          label: 'Día 1',
+          date: 'Jueves 12 de septiembre',
+          theme: 'Visión y tendencias del futuro digital',
+          sessions: [
+            {
+              time: '09:00 - 09:45',
+              title: 'Keynote: El nuevo mapa de la innovación latinoamericana',
+              speaker: 'Valeria Gómez · CIO, NovaLabs',
+              description:
+                'Cómo las empresas están acelerando sus hojas de ruta digitales con IA generativa y data fabric.',
+            },
+            {
+              time: '10:15 - 11:00',
+              title: 'Panel: Crecimiento exponencial con estrategias customer-first',
+              speaker: 'Banco Digital MX · RetailNow · Inmotion Logistics',
+              description:
+                'Casos reales de escalamiento basado en datos, automatización y experiencias omnicanal.',
+            },
+            {
+              time: '12:00 - 13:30',
+              title: 'Workshops inmersivos',
+              speaker: 'Salas simultáneas',
+              description:
+                'Selecciona entre journey maps, laboratorios de ciberseguridad o diseño de productos basados en IA.',
+            },
+            {
+              time: '16:00 - 17:30',
+              title: 'Experiencia de networking con startups y venture capitals',
+              speaker: 'Open Innovation Hub',
+              description:
+                'Pitch stage con los proyectos más prometedores y sesiones 1:1 con mentores especializados.',
+            },
           ],
         },
         {
-          role: 'customer',
-          description: 'Cliente autenticado con beneficios adicionales.',
-          capabilities: [
-            'Gestionar carrito y compras',
-            'Descargar facturas y seguimiento de órdenes',
-            'Acceso a soporte prioritario',
+          id: 'dia-2',
+          label: 'Día 2',
+          date: 'Viernes 13 de septiembre',
+          theme: 'Operaciones inteligentes y cultura data-driven',
+          sessions: [
+            {
+              time: '09:00 - 09:45',
+              title: 'Keynote: Industrias 4.0 y automatización centrada en las personas',
+              speaker: 'Dr. Mauricio Pineda · Director, FutureWorks Institute',
+              description:
+                'Tecnologías exponenciales aplicadas a manufactura, salud y servicios financieros.',
+            },
+            {
+              time: '11:00 - 11:45',
+              title: 'Sesión de casos: Cómo construir data products escalables',
+              speaker: 'Dataloop · Insightful · CloudBoost',
+              description:
+                'Blueprint para gobernanza de datos, arquitectura moderna y analítica accionable.',
+            },
+            {
+              time: '14:00 - 15:30',
+              title: 'Laboratorio: Domina tu estrategia de inteligencia artificial',
+              speaker: 'AI Strategy Studio',
+              description:
+                'Guía paso a paso para definir casos de uso, pilotos rápidos y métricas de impacto.',
+            },
+            {
+              time: '17:45 - 18:30',
+              title: 'Fireside chat: El futuro del trabajo y las organizaciones híbridas',
+              speaker: 'Sofía Rivas · VP People, Hivemind',
+              description:
+                'Modelos colaborativos, upskilling y cultura digital como ventaja competitiva.',
+            },
           ],
         },
         {
-          role: 'employee',
-          description: 'Colaborador encargado de ventas y facturación.',
-          capabilities: [
-            'Acceder al POS y registrar ventas',
-            'Generar facturación y notas de crédito',
-            'Visualizar catálogo interno con precios especiales',
-          ],
-        },
-        {
-          role: 'admin',
-          description: 'Administrador con acceso a reportes y gestión operativa.',
-          capabilities: [
-            'Crear y actualizar productos y servicios',
-            'Supervisar ventas, inventario y métricas clave',
-            'Gestionar usuarios, roles y promociones',
-          ],
-        },
-        {
-          role: 'superadmin',
-          description: 'Responsable de la configuración global y auditoría.',
-          capabilities: [
-            'Asignar roles avanzados y permisos',
-            'Auditar actividad y seguridad',
-            'Administrar integraciones críticas y respaldos',
+          id: 'dia-3',
+          label: 'Día 3',
+          date: 'Sábado 14 de septiembre',
+          theme: 'Construyendo ecosistemas sostenibles',
+          sessions: [
+            {
+              time: '09:30 - 10:15',
+              title: 'Keynote: Tecnología para el impacto social y ambiental',
+              speaker: 'Andrea León · CEO, GreenTech Alliance',
+              description:
+                'Iniciativas que conectan innovación, sostenibilidad y crecimiento económico.',
+            },
+            {
+              time: '11:30 - 12:15',
+              title: 'Mesa redonda: Alianzas entre corporativos, startups y academia',
+              speaker: 'Universidad Tec · Impact Ventures · Corporativo Neón',
+              description:
+                'Modelos de colaboración que aceleran la transferencia de conocimiento.',
+            },
+            {
+              time: '13:00 - 14:30',
+              title: 'Demo Day: Escenario de soluciones emergentes',
+              speaker: 'Startups seleccionadas',
+              description:
+                'Presentaciones de tecnologías listas para escalar en mercados globales.',
+            },
+            {
+              time: '17:00 - 18:00',
+              title: 'Clausura y cocktail de networking',
+              speaker: 'Comité Congreso Tecnología 2024',
+              description:
+                'Celebra los aprendizajes junto a speakers, patrocinadores y aliados estratégicos.',
+            },
           ],
         },
       ];
 
-      function formatCurrency(value, currency) {
-        return new Intl.NumberFormat('es-MX', {
-          style: 'currency',
-          currency,
-          minimumFractionDigits: 2,
-        }).format(value);
-      }
+      const speakers = [
+        {
+          id: 'speaker-valeria',
+          name: 'Valeria Gómez',
+          role: 'Chief Innovation Officer',
+          company: 'NovaLabs',
+          bio: 'Reconocida estratega en transformación digital con proyectos en 12 países y foco en IA generativa.',
+        },
+        {
+          id: 'speaker-mauricio',
+          name: 'Dr. Mauricio Pineda',
+          role: 'Director Ejecutivo',
+          company: 'FutureWorks Institute',
+          bio: 'Investigador y consultor para industrias 4.0, especializado en automatización centrada en las personas.',
+        },
+        {
+          id: 'speaker-andrea',
+          name: 'Andrea León',
+          role: 'CEO & Co-founder',
+          company: 'GreenTech Alliance',
+          bio: 'Emprendedora social impulsora de proyectos de tecnología sostenible en América Latina.',
+        },
+        {
+          id: 'speaker-sofia',
+          name: 'Sofía Rivas',
+          role: 'VP People & Culture',
+          company: 'Hivemind',
+          bio: 'Líder en construcción de culturas ágiles, talento híbrido y programas de upskilling masivo.',
+        },
+        {
+          id: 'speaker-leo',
+          name: 'Leo Fernández',
+          role: 'Head of Data Products',
+          company: 'Insightful',
+          bio: 'Arquitecto de soluciones data-driven que ha escalado plataformas analíticas para empresas Fortune 500.',
+        },
+        {
+          id: 'speaker-samira',
+          name: 'Samira Alí',
+          role: 'Global Partnerships Lead',
+          company: 'Impact Ventures',
+          bio: 'Especialista en alianzas público-privadas para proyectos de innovación abierta y emprendimiento.',
+        },
+      ];
 
-      function populateHero() {
-        document.getElementById('company-name').textContent = companyProfile.name;
-        document.getElementById('company-tagline').textContent = companyProfile.tagline;
-        document.getElementById('company-mission').textContent = companyProfile.mission;
+      const sponsorTiers = [
+        {
+          tier: 'Platino',
+          companies: ['Aurelia Systems', 'QuantumLeap', 'Skybridge Cloud'],
+        },
+        {
+          tier: 'Oro',
+          companies: ['BrightData', 'NextWave Robotics', 'SecureNet', 'NovaPay'],
+        },
+        {
+          tier: 'Plata',
+          companies: ['FlowOps', 'Intellisense', 'CodeFoundry', 'EcoGrid', 'Talent360'],
+        },
+      ];
 
-        const list = document.getElementById('hero-highlights');
-        heroHighlights.forEach((item) => {
+      const faqs = [
+        {
+          id: 'faq-entradas',
+          question: '¿Qué incluye mi pase al Congreso de Tecnología 2024?',
+          answer:
+            'Acceso completo a las tres jornadas, keynotes, paneles, workshops, zona de experiencias, coffee breaks y las sesiones de networking. También recibirás certificados digitales y acceso on-demand a los contenidos grabados.',
+        },
+        {
+          id: 'faq-descuentos',
+          question: '¿Existen descuentos para grupos o instituciones educativas?',
+          answer:
+            'Sí, contamos con tarifas preferenciales para grupos corporativos y universidades. Escríbenos a registro@congresotecnologia.com y nuestro equipo te compartirá los paquetes disponibles.',
+        },
+        {
+          id: 'faq-lugar',
+          question: '¿Dónde se llevará a cabo el congreso?',
+          answer:
+            'El evento se realizará en el Centro de Convenciones Innovare, Ciudad de México. Disponemos de estacionamiento, transporte oficial y convenios con hoteles aliados.',
+        },
+        {
+          id: 'faq-streaming',
+          question: '¿Puedo seguir las conferencias de manera virtual?',
+          answer:
+            'Sí, ofrecemos accesos híbridos con transmisión en vivo, interacción con speakers y descarga de materiales exclusivos.',
+        },
+      ];
+
+      const heroList = document.getElementById('hero-list');
+      const statGrid = document.getElementById('stat-grid');
+      const featureGrid = document.getElementById('feature-grid');
+      const agendaTabs = document.getElementById('agenda-tabs');
+      const agendaTheme = document.getElementById('agenda-theme');
+      const agendaDate = document.getElementById('agenda-date');
+      const agendaSessions = document.getElementById('agenda-sessions');
+      const speakerGrid = document.getElementById('speaker-grid');
+      const sponsorGrid = document.getElementById('sponsor-grid');
+      const faqList = document.getElementById('faq-list');
+      const yearNode = document.getElementById('year');
+
+      heroHighlights.forEach((item) => {
+        const li = document.createElement('li');
+        li.textContent = item;
+        heroList.appendChild(li);
+      });
+
+      stats.forEach((stat) => {
+        const article = document.createElement('article');
+        article.className = 'stat-card';
+        article.innerHTML = `<span>${stat.value}</span><p>${stat.label}</p>`;
+        statGrid.appendChild(article);
+      });
+
+      experienceHighlights.forEach((feature) => {
+        const article = document.createElement('article');
+        article.className = 'feature-card glass-card';
+        article.innerHTML = `<h3>${feature.title}</h3><p>${feature.description}</p>`;
+        featureGrid.appendChild(article);
+      });
+
+      let activeDayId = agendaDays[0].id;
+
+      const renderAgenda = () => {
+        const activeDay = agendaDays.find((day) => day.id === activeDayId) || agendaDays[0];
+        agendaTheme.textContent = activeDay.theme;
+        agendaDate.textContent = activeDay.date;
+        agendaSessions.innerHTML = '';
+        activeDay.sessions.forEach((session) => {
           const li = document.createElement('li');
-          li.textContent = item;
-          list.appendChild(li);
-        });
-      }
-
-      function populateProducts() {
-        const grid = document.getElementById('product-grid');
-        catalogProducts.forEach((product) => {
-          const article = document.createElement('article');
-          article.className = 'card';
-          article.innerHTML = `
-            <span class="badge">${product.featured ? 'Recomendado' : 'Disponible'}</span>
-            <h3>${product.name}</h3>
-            <p>${product.description}</p>
-            <strong style="font-size: 1.15rem; color: #1d4ed8;">${formatCurrency(product.price, product.currency)}</strong>
-            ${
-              product.tags
-                ? `<div class="tag-list">${product.tags
-                    .map((tag) => `<span class="tag">#${tag}</span>`)
-                    .join('')}</div>`
-                : ''
-            }
-          `;
-          grid.appendChild(article);
-        });
-      }
-
-      function populateServices() {
-        const grid = document.getElementById('service-grid');
-        catalogServices.forEach((service) => {
-          const article = document.createElement('article');
-          article.className = 'card';
-          article.innerHTML = `
-            <span class="badge">${service.category.toUpperCase()}</span>
-            <h3>${service.name}</h3>
-            <p>${service.description}</p>
-            <strong style="color: #0f172a;">${formatCurrency(service.price, service.currency)} · ${service.billingCycle}</strong>
-            <ul style="margin: 0; padding-left: 1.25rem; color: #1f2937;">
-              ${service.highlights.map((highlight) => `<li>${highlight}</li>`).join('')}
-            </ul>
-          `;
-          grid.appendChild(article);
-        });
-      }
-
-      function populateTestimonials() {
-        const grid = document.getElementById('testimonial-grid');
-        testimonials.forEach((testimonial) => {
-          const article = document.createElement('article');
-          article.className = 'testimonial-card';
-          article.innerHTML = `
-            <p>“${testimonial.quote}”</p>
+          li.innerHTML = `
             <div>
-              <strong>${testimonial.name}</strong>
-              <p style="margin: 0; color: #cbd5f5;">${testimonial.role}</p>
+              <span class="session-time">${session.time}</span>
+              <h4>${session.title}</h4>
+              <p class="session-speaker">${session.speaker}</p>
+              <p>${session.description}</p>
             </div>
           `;
-          grid.appendChild(article);
+          agendaSessions.appendChild(li);
         });
-      }
 
-      function populatePartners() {
-        const grid = document.getElementById('partner-grid');
-        partners.forEach((partner) => {
-          const div = document.createElement('div');
-          div.textContent = partner.name;
-          div.style.padding = '1rem 1.5rem';
-          div.style.borderRadius = '1rem';
-          div.style.background = 'rgba(15, 23, 42, 0.65)';
-          div.style.border = '1px solid rgba(148, 163, 184, 0.2)';
-          div.style.color = '#cbd5f5';
-          div.style.textAlign = 'center';
-          div.style.fontWeight = '600';
-          div.style.letterSpacing = '0.03em';
-          grid.appendChild(div);
+        [...agendaTabs.children].forEach((button) => {
+          if (button.dataset.id === activeDayId) {
+            button.classList.add('active');
+          } else {
+            button.classList.remove('active');
+          }
         });
-      }
+      };
 
-      function populateContact() {
-        document.getElementById('contact-email').innerHTML = `Escríbenos a <a href="mailto:${companyProfile.contactEmail}">${companyProfile.contactEmail}</a> o llámanos al <strong>${companyProfile.phone}</strong>.`;
-        document.getElementById('contact-cta').textContent = `¿Listo para avanzar? Solicita tu demo y recibe un plan a la medida que incluya e-commerce, POS, facturación y dashboards ejecutivos. Estamos en ${companyProfile.address}.`;
-        document.getElementById('footer-copy').textContent = `© ${new Date().getFullYear()} ${companyProfile.name}. Todos los derechos reservados.`;
-      }
+      agendaDays.forEach((day) => {
+        const button = document.createElement('button');
+        button.type = 'button';
+        button.dataset.id = day.id;
+        button.className = 'agenda-tab';
+        button.innerHTML = `<span>${day.label}</span><small>${day.date}</small>`;
+        button.addEventListener('click', () => {
+          activeDayId = day.id;
+          renderAgenda();
+        });
+        agendaTabs.appendChild(button);
+      });
 
-      function setupRoles() {
-        const tabs = document.getElementById('role-tabs');
-        const description = document.getElementById('role-description');
-        const list = document.getElementById('role-capabilities');
-        const link = document.getElementById('role-link');
+      renderAgenda();
 
-        function renderRole(role) {
-          description.textContent = role.description;
-          link.href = `#dashboard-${role.role}`;
-          list.innerHTML = '';
-          role.capabilities.forEach((capability) => {
-            const li = document.createElement('li');
-            li.textContent = capability;
-            list.appendChild(li);
+      speakers.forEach((speaker) => {
+        const article = document.createElement('article');
+        article.className = 'speaker-card glass-card';
+        article.innerHTML = `
+          <div class="speaker-meta">
+            <span class="speaker-tag">${speaker.company}</span>
+            <h3>${speaker.name}</h3>
+            <p class="speaker-role">${speaker.role}</p>
+          </div>
+          <p>${speaker.bio}</p>
+        `;
+        speakerGrid.appendChild(article);
+      });
+
+      sponsorTiers.forEach((tier) => {
+        const article = document.createElement('article');
+        article.className = 'sponsor-card glass-card';
+        const listItems = tier.companies.map((company) => `<li>${company}</li>`).join('');
+        article.innerHTML = `<h3>${tier.tier}</h3><ul>${listItems}</ul>`;
+        sponsorGrid.appendChild(article);
+      });
+
+      faqs.forEach((faq, index) => {
+        const article = document.createElement('article');
+        article.className = 'faq-item glass-card';
+        const button = document.createElement('button');
+        button.type = 'button';
+        button.innerHTML = `<span>${faq.question}</span><span aria-hidden="true">+</span>`;
+        const answer = document.createElement('p');
+        answer.textContent = faq.answer;
+        answer.hidden = true;
+
+        button.addEventListener('click', () => {
+          const isOpen = article.classList.contains('open');
+          document.querySelectorAll('.faq-item').forEach((item) => {
+            item.classList.remove('open');
+            item.querySelector('p').hidden = true;
+            item.querySelector('button span:last-child').textContent = '+';
           });
+
+          if (!isOpen) {
+            article.classList.add('open');
+            answer.hidden = false;
+            button.querySelector('span:last-child').textContent = '−';
+          }
+        });
+
+        article.appendChild(button);
+        article.appendChild(answer);
+
+        if (index === 0) {
+          article.classList.add('open');
+          answer.hidden = false;
+          button.querySelector('span:last-child').textContent = '−';
         }
 
-        rolePermissions.forEach((role, index) => {
-          const button = document.createElement('button');
-          button.type = 'button';
-          button.className = `role-tab${index === 1 ? ' active' : ''}`;
-          button.textContent = role.role.toUpperCase();
-          button.addEventListener('click', () => {
-            Array.from(tabs.children).forEach((child) => child.classList.remove('active'));
-            button.classList.add('active');
-            renderRole(role);
-          });
-          tabs.appendChild(button);
-        });
+        faqList.appendChild(article);
+      });
 
-        renderRole(rolePermissions[1]);
-      }
-
-      populateHero();
-      populateProducts();
-      populateServices();
-      populateTestimonials();
-      populatePartners();
-      populateContact();
-      setupRoles();
+      yearNode.textContent = new Date().getFullYear();
     </script>
   </body>
 </html>
