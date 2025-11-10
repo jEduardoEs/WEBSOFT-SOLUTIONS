@@ -3,15 +3,15 @@
 Este repositorio está organizado como un monorepo con [Turborepo](https://turbo.build/repo) y contiene una experiencia end-to-end para **WEBSOFT SOLUTIONS**:
 
 - **apps/frontend**: Aplicación Next.js con TypeScript que centraliza la landing corporativa, catálogo y dashboards para clientes, empleados, administradores y super admin.
-- **apps/backend**: API construida con NestJS que expone los módulos de catálogo, usuarios, POS, órdenes y reportería a partir de un solo origen de datos.
-- **packages/shared**: Tipos y colecciones compartidas (productos, servicios, roles, reportes, órdenes e invoices) consumidas tanto por frontend como backend.
+- **apps/backend**: API construida con NestJS que expone los módulos de catálogo, CRM, clientes, POS, facturación, usuarios, órdenes y reportería a partir de un solo origen de datos.
+- **packages/shared**: Tipos y colecciones compartidas (productos, servicios, roles, CRM, clientes, reportes, órdenes e invoices) consumidas tanto por frontend como backend.
 
 ## Características principales
 
 - Landing page responsiva alineada con la identidad visual (blancos, azules y negros) que resume misión, soluciones, servicios, roles y testimonios.
-- Dashboard central con métricas, ventas, facturas y accesos rápidos a los módulos por rol.
-- Vistas específicas para `customer`, `employee`, `admin` y `superadmin` con contenidos y acciones sugeridas.
-- API NestJS con endpoints listos (`/catalog`, `/users`, `/orders`, `/pos`, `/reports`) para conectar la interfaz y futuras integraciones.
+- Dashboard central con métricas, ventas, facturas, CRM y accesos rápidos a los módulos por rol.
+- Vistas específicas para `customer`, `employee`, `admin` y `superadmin` con contenidos y acciones sugeridas, incluyendo portal de clientes, tickets y objetivos comerciales.
+- API NestJS con endpoints listos (`/catalog`, `/users`, `/orders`, `/pos`, `/reports`, `/crm`, `/customers`, `/billing`) para conectar la interfaz y futuras integraciones.
 - Datos compartidos y tipados en `@jeduardoes/shared`, evitando discrepancias entre frontend y backend.
 
 ## Requisitos
@@ -57,7 +57,7 @@ Esto descargará/compilará las imágenes necesarias y expondrá los puertos men
 
 ## Vista previa estática
 
-En `preview/index.html` tienes una versión estática de la landing para revisarla sin montar todo el monorepo.
+- En `preview/index.html` tienes una versión estática de la landing y los módulos CRM (clientes, portal, facturación) para revisarlos sin montar todo el monorepo.
 
 ### Cómo abrirla correctamente
 

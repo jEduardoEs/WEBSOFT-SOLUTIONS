@@ -3,6 +3,12 @@ import {
   dashboardStats,
   executiveReports,
   invoices,
+  crmModules,
+  customerAccounts,
+  supportTickets,
+  billingSummaries,
+  activityTimeline,
+  salesGoals,
   rolePermissions,
   salesPipeline,
   sampleOrders,
@@ -71,6 +77,48 @@ export default function DashboardOverviewPage() {
       </section>
 
       <section className="dashboard-section">
+        <h2>CRM y relacionamiento con clientes</h2>
+        <div className="card-grid">
+          <div className="card">
+            <h3>Módulos destacados</h3>
+            <ul style={{ margin: 0, paddingLeft: '1.2rem' }}>
+              {crmModules.slice(0, 3).map((module) => (
+                <li key={module.id}>{module.title} · {module.highlights[0]}</li>
+              ))}
+            </ul>
+          </div>
+          <div className="card">
+            <h3>Clientes activos</h3>
+            <ul style={{ margin: 0, paddingLeft: '1.2rem' }}>
+              {customerAccounts.slice(0, 3).map((account) => {
+                const healthLabel =
+                  account.health === 'excellent'
+                    ? 'Excelente'
+                    : account.health === 'good'
+                      ? 'Buena'
+                      : 'En riesgo';
+                return (
+                  <li key={account.id}>
+                    {account.companyName} · Valor anual ${account.annualValue.toLocaleString('es-MX')} · Salud {healthLabel}
+                  </li>
+                );
+              })}
+            </ul>
+          </div>
+          <div className="card">
+            <h3>Tickets de soporte</h3>
+            <ul style={{ margin: 0, paddingLeft: '1.2rem' }}>
+              {supportTickets.slice(0, 3).map((ticket) => (
+                <li key={ticket.id}>
+                  {ticket.subject} · {ticket.priority.toUpperCase()} · {ticket.status.toUpperCase()}
+                </li>
+              ))}
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <section className="dashboard-section">
         <h2>Experiencias por rol</h2>
         <div className="card-grid">
           {roleSummaries.map((role) => (
@@ -104,6 +152,43 @@ export default function DashboardOverviewPage() {
               <p style={{ margin: 0, color: '#1d4ed8', fontWeight: 600 }}>Actualizado: {new Date(report.generatedAt).toLocaleDateString()}</p>
             </article>
           ))}
+        </div>
+      </section>
+
+      <section className="dashboard-section">
+        <h2>Finanzas y seguimiento de objetivos</h2>
+        <div className="card-grid">
+          <div className="card">
+            <h3>Resumen de facturación</h3>
+            <ul style={{ margin: 0, paddingLeft: '1.2rem' }}>
+              {billingSummaries.map((summary) => (
+                <li key={summary.month}>
+                  {summary.month}: {summary.currency} {summary.revenue.toLocaleString('es-MX')} · Cobro{' '}
+                  {(summary.collectedRate * 100).toFixed(0)}%
+                </li>
+              ))}
+            </ul>
+          </div>
+          <div className="card">
+            <h3>Objetivos comerciales</h3>
+            <ul style={{ margin: 0, paddingLeft: '1.2rem' }}>
+              {salesGoals.map((goal) => (
+                <li key={goal.id}>
+                  {goal.label}: {goal.progress}% de {goal.target}%
+                </li>
+              ))}
+            </ul>
+          </div>
+          <div className="card">
+            <h3>Últimas actividades</h3>
+            <ul style={{ margin: 0, paddingLeft: '1.2rem' }}>
+              {activityTimeline.slice(0, 4).map((activity) => (
+                <li key={activity.id}>
+                  {activity.description} · {new Date(activity.timestamp).toLocaleDateString('es-MX')}
+                </li>
+              ))}
+            </ul>
+          </div>
         </div>
       </section>
     </>

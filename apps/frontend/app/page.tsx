@@ -7,8 +7,12 @@ import {
   catalogServices,
   companyProfile,
   partners,
+  crmModules,
+  customerAccounts,
+  customerPortalFeatures,
   rolePermissions,
   testimonials,
+  billingSummaries,
 } from '@jeduardoes/shared';
 
 const heroHighlights = [
@@ -22,6 +26,10 @@ export default function HomePage() {
 
   const featuredProducts = useMemo(() => catalogProducts.slice(0, 3), []);
   const featuredServices = useMemo(() => catalogServices.slice(0, 3), []);
+  const highlightedModules = useMemo(() => crmModules.slice(0, 3), []);
+  const spotlightAccounts = useMemo(() => customerAccounts.slice(0, 3), []);
+  const portalHighlights = useMemo(() => customerPortalFeatures, []);
+  const latestBilling = useMemo(() => billingSummaries.slice(-3).reverse(), []);
 
   return (
     <main>
@@ -41,6 +49,12 @@ export default function HomePage() {
               </a>
               <a className="menu-link glass-interactive" href="#servicios">
                 Servicios
+              </a>
+              <a className="menu-link glass-interactive" href="#crm">
+                CRM 360°
+              </a>
+              <a className="menu-link glass-interactive" href="#clientes">
+                Clientes
               </a>
               <a className="menu-link glass-interactive" href="#roles">
                 Roles
@@ -65,8 +79,8 @@ export default function HomePage() {
               <Link className="button-primary glass-interactive" href="/dashboard">
                 Explorar plataforma
               </Link>
-              <Link className="button-secondary glass-interactive" href="#contacto">
-                Habla con un experto
+              <Link className="button-secondary glass-interactive" href="#crm">
+                Ver CRM en acción
               </Link>
             </div>
             <ul style={{ margin: 0, paddingLeft: '1.25rem', color: '#cbd5f5' }}>
@@ -74,6 +88,45 @@ export default function HomePage() {
                 <li key={item}>{item}</li>
               ))}
             </ul>
+          </div>
+        </div>
+      </section>
+
+      <section id="crm">
+        <div className="container">
+          <h2 className="section-title">CRM operativo para toda tu organización</h2>
+          <div className="card-grid">
+            {highlightedModules.map((module) => (
+              <article className="card" key={module.id}>
+                <span className="badge">{module.title}</span>
+                <p>{module.description}</p>
+                <ul style={{ margin: 0, paddingLeft: '1.25rem' }}>
+                  {module.highlights.map((highlight) => (
+                    <li key={highlight}>{highlight}</li>
+                  ))}
+                </ul>
+                <small style={{ display: 'block', marginTop: '1rem', color: '#1d4ed8' }}>
+                  Equipos clave: {module.roleFocus.map((role) => role.toUpperCase()).join(', ')}
+                </small>
+              </article>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section>
+        <div className="container">
+          <h2 className="section-title">Portal de clientes listo para producción</h2>
+          <div className="card-grid">
+            {portalHighlights.map((feature) => (
+              <article className="card" key={feature.id}>
+                <h3>{feature.title}</h3>
+                <p>{feature.description}</p>
+                <Link className="button-secondary glass-interactive" href="#contacto">
+                  {feature.cta}
+                </Link>
+              </article>
+            ))}
           </div>
         </div>
       </section>
@@ -124,6 +177,72 @@ export default function HomePage() {
                 </ul>
               </article>
             ))}
+          </div>
+        </div>
+      </section>
+
+      <section id="clientes">
+        <div className="container">
+          <h2 className="section-title">Clientes y contratos gestionados en línea</h2>
+          <div className="card-grid">
+            {spotlightAccounts.map((account) => (
+              <article className="card" key={account.id}>
+                <span className="badge">{account.plan}</span>
+                <h3>{account.companyName}</h3>
+                <p>
+                  Contacto: {account.contactName} · {account.email}
+                </p>
+                <p style={{ margin: 0 }}>
+                  Estado: {account.status === 'active' ? 'Activo' : account.status === 'onboarding' ? 'Onboarding' : 'Suspendido'} · Salud:{' '}
+                  {account.health === 'excellent'
+                    ? 'Excelente'
+                    : account.health === 'good'
+                      ? 'Buena'
+                      : 'En riesgo'}
+                </p>
+                <p style={{ margin: 0, color: '#1d4ed8', fontWeight: 600 }}>
+                  Valor anual: ${account.annualValue.toLocaleString('es-MX', { minimumFractionDigits: 0 })} USD
+                </p>
+                <small style={{ display: 'block', marginTop: '0.75rem', color: '#334155' }}>
+                  Último contacto: {new Date(account.lastInteraction).toLocaleDateString('es-MX')}
+                </small>
+                <div className="tag-list">
+                  {account.tags.map((tag) => (
+                    <span className="tag" key={tag}>
+                      #{tag}
+                    </span>
+                  ))}
+                </div>
+              </article>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section>
+        <div className="container">
+          <h2 className="section-title">Facturación y cobros al día</h2>
+          <div className="card-grid">
+            {latestBilling.map((billing) => (
+              <article className="card" key={billing.month}>
+                <h3>{billing.month}</h3>
+                <p>
+                  Ingresos: {billing.currency} {billing.revenue.toLocaleString('es-MX', { minimumFractionDigits: 2 })}
+                </p>
+                <p>Facturas emitidas: {billing.invoicesIssued}</p>
+                <p>Tasa de cobro: {(billing.collectedRate * 100).toFixed(0)}%</p>
+              </article>
+            ))}
+            <article className="card" style={{ background: 'rgba(37, 99, 235, 0.12)' }}>
+              <h3>Automatiza tu ciclo de cobro</h3>
+              <p>
+                Integra tu pasarela de pago favorita, programa recordatorios inteligentes y descarga conciliaciones para tu
+                equipo contable.
+              </p>
+              <Link className="button-primary glass-interactive" href="/dashboard/admin">
+                Ver tablero financiero
+              </Link>
+            </article>
           </div>
         </div>
       </section>

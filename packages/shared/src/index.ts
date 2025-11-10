@@ -108,6 +108,69 @@ export interface Partner {
   logo?: string;
 }
 
+export interface CrmModule {
+  id: string;
+  title: string;
+  description: string;
+  roleFocus: UserRole[];
+  highlights: string[];
+}
+
+export interface PortalFeature {
+  id: string;
+  title: string;
+  description: string;
+  cta: string;
+}
+
+export type CustomerHealth = 'excellent' | 'good' | 'at-risk';
+
+export interface CustomerAccount {
+  id: string;
+  companyName: string;
+  contactName: string;
+  email: string;
+  plan: string;
+  status: 'active' | 'onboarding' | 'suspended';
+  health: CustomerHealth;
+  annualValue: number;
+  lastInteraction: string;
+  tags: string[];
+}
+
+export interface SupportTicket {
+  id: string;
+  customerId: string;
+  subject: string;
+  priority: 'low' | 'medium' | 'high' | 'urgent';
+  status: 'open' | 'in-progress' | 'resolved';
+  createdAt: string;
+  owner: string;
+}
+
+export interface BillingSummary {
+  month: string;
+  revenue: number;
+  invoicesIssued: number;
+  collectedRate: number;
+  currency: CurrencyCode | string;
+}
+
+export interface ActivityEntry {
+  id: string;
+  type: 'meeting' | 'invoice' | 'ticket' | 'deal' | 'deployment';
+  description: string;
+  timestamp: string;
+  owner: string;
+}
+
+export interface SalesGoal {
+  id: string;
+  label: string;
+  progress: number;
+  target: number;
+}
+
 export interface CompanyProfile {
   name: string;
   tagline: string;
@@ -250,6 +313,193 @@ export const partners: Partner[] = [
   { id: 'partner-microsoft', name: 'Microsoft Solutions' },
   { id: 'partner-google', name: 'Google Cloud Build' },
   { id: 'partner-stripe', name: 'Stripe Verified Partner' },
+];
+
+export const crmModules: CrmModule[] = [
+  {
+    id: 'crm-sales',
+    title: 'Ventas y pipeline inteligente',
+    description:
+      'Seguimiento de oportunidades con etapas configurables, recordatorios automáticos y proyecciones de ingresos.',
+    roleFocus: ['employee', 'admin'],
+    highlights: [
+      'Pipeline visual Kanban',
+      'Pronóstico por trimestre',
+      'Alertas de estancamiento',
+    ],
+  },
+  {
+    id: 'crm-billing',
+    title: 'Facturación y suscripciones',
+    description:
+      'Controla facturas electrónicas, pagos recurrentes y conciliaciones contables con reportes descargables.',
+    roleFocus: ['employee', 'admin'],
+    highlights: [
+      'Timbrado automático',
+      'Reintentos de cobro',
+      'Exportaciones a ERP',
+    ],
+  },
+  {
+    id: 'crm-support',
+    title: 'Soporte omnicanal',
+    description:
+      'Gestiona tickets desde correo, chat y WhatsApp con SLA configurables y base de conocimiento integrada.',
+    roleFocus: ['employee', 'admin', 'superadmin'],
+    highlights: [
+      'Enrutamiento inteligente',
+      'Encuestas NPS automáticas',
+      'Panel en tiempo real',
+    ],
+  },
+  {
+    id: 'crm-executive',
+    title: 'Tableros ejecutivos',
+    description:
+      'Visión 360° del negocio con métricas de retención, MRR, crecimiento y salud de clientes en un solo lugar.',
+    roleFocus: ['admin', 'superadmin'],
+    highlights: [
+      'MRR vs. objetivo',
+      'Clientes en riesgo',
+      'Forecast de expansión',
+    ],
+  },
+];
+
+export const customerPortalFeatures: PortalFeature[] = [
+  {
+    id: 'portal-orders',
+    title: 'Pedidos y facturas 24/7',
+    description:
+      'Tus clientes descargan facturas, consultan órdenes y programan renovaciones sin depender del equipo interno.',
+    cta: 'Conoce el portal de clientes',
+  },
+  {
+    id: 'portal-support',
+    title: 'Centro de soporte dedicado',
+    description:
+      'Ticketing con SLA personalizados, chat en vivo y respuestas sugeridas por IA.',
+    cta: 'Abrir mesa de ayuda',
+  },
+  {
+    id: 'portal-analytics',
+    title: 'Insights personalizados',
+    description:
+      'Dashboards de consumo, licencias y contratos compartidos con tus clientes estratégicos.',
+    cta: 'Compartir tablero',
+  },
+];
+
+export const customerAccounts: CustomerAccount[] = [
+  {
+    id: 'account-001',
+    companyName: 'Grupo Altavista',
+    contactName: 'Laura Méndez',
+    email: 'laura@altavista.com',
+    plan: 'Enterprise Cloud',
+    status: 'active',
+    health: 'excellent',
+    annualValue: 54000,
+    lastInteraction: '2024-05-08T15:30:00.000Z',
+    tags: ['cloud', 'soporte-premium'],
+  },
+  {
+    id: 'account-002',
+    companyName: 'RetailNow',
+    contactName: 'Miguel Torres',
+    email: 'miguel@retailnow.mx',
+    plan: 'POS + Facturación',
+    status: 'onboarding',
+    health: 'good',
+    annualValue: 22800,
+    lastInteraction: '2024-05-07T09:00:00.000Z',
+    tags: ['retail', 'pos'],
+  },
+  {
+    id: 'account-003',
+    companyName: 'HealthCare 4.0',
+    contactName: 'Mariana López',
+    email: 'mariana@healthcare40.com',
+    plan: 'Analytics + Seguridad',
+    status: 'active',
+    health: 'at-risk',
+    annualValue: 37200,
+    lastInteraction: '2024-04-29T17:45:00.000Z',
+    tags: ['salud', 'ia'],
+  },
+];
+
+export const supportTickets: SupportTicket[] = [
+  {
+    id: 'ticket-231',
+    customerId: 'account-003',
+    subject: 'Actualización de dashboard de analítica',
+    priority: 'high',
+    status: 'in-progress',
+    createdAt: '2024-05-07T12:15:00.000Z',
+    owner: 'Alejandra Ventas',
+  },
+  {
+    id: 'ticket-232',
+    customerId: 'account-001',
+    subject: 'Consulta sobre integración con ERP',
+    priority: 'medium',
+    status: 'open',
+    createdAt: '2024-05-08T08:00:00.000Z',
+    owner: 'Equipo Soporte',
+  },
+  {
+    id: 'ticket-233',
+    customerId: 'account-002',
+    subject: 'Capacitación adicional POS',
+    priority: 'low',
+    status: 'resolved',
+    createdAt: '2024-05-05T10:25:00.000Z',
+    owner: 'Equipo Implementación',
+  },
+];
+
+export const billingSummaries: BillingSummary[] = [
+  { month: 'Mar 2024', revenue: 48200, invoicesIssued: 54, collectedRate: 0.94, currency: 'USD' },
+  { month: 'Abr 2024', revenue: 51750, invoicesIssued: 61, collectedRate: 0.96, currency: 'USD' },
+  { month: 'May 2024', revenue: 54580, invoicesIssued: 64, collectedRate: 0.97, currency: 'USD' },
+];
+
+export const activityTimeline: ActivityEntry[] = [
+  {
+    id: 'activity-001',
+    type: 'deal',
+    description: 'Cierre de oportunidad con RetailNow por $19,900 USD.',
+    timestamp: '2024-05-07T18:00:00.000Z',
+    owner: 'Alejandra Ventas',
+  },
+  {
+    id: 'activity-002',
+    type: 'invoice',
+    description: 'Factura inv-002 pagada por Analytics AI Insights.',
+    timestamp: '2024-05-03T09:05:00.000Z',
+    owner: 'Equipo Facturación',
+  },
+  {
+    id: 'activity-003',
+    type: 'meeting',
+    description: 'Reunión de QBR con Grupo Altavista: renovación y upsell.',
+    timestamp: '2024-05-02T15:30:00.000Z',
+    owner: 'Carla CEO',
+  },
+  {
+    id: 'activity-004',
+    type: 'ticket',
+    description: 'Ticket 231 escalado a soporte de analítica.',
+    timestamp: '2024-05-07T12:45:00.000Z',
+    owner: 'Mesa de ayuda',
+  },
+];
+
+export const salesGoals: SalesGoal[] = [
+  { id: 'goal-001', label: 'Objetivo MRR Q2', progress: 68, target: 100 },
+  { id: 'goal-002', label: 'Renovaciones Enterprise', progress: 54, target: 80 },
+  { id: 'goal-003', label: 'Ventas POS nuevas sucursales', progress: 32, target: 60 },
 ];
 
 export const rolePermissions: RolePermission[] = [

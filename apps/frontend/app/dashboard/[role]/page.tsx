@@ -8,6 +8,12 @@ import {
   rolePermissions,
   salesPipeline,
   sampleOrders,
+  crmModules,
+  customerPortalFeatures,
+  customerAccounts,
+  supportTickets,
+  salesGoals,
+  activityTimeline,
   type RolePermission,
 } from '@jeduardoes/shared';
 
@@ -70,6 +76,14 @@ export default function RoleDashboardPage({ params }: RolePageProps) {
                 ))}
               </ul>
             </article>
+            <article className="card">
+              <h3>Vista previa del CRM</h3>
+              <ul style={{ margin: 0, paddingLeft: '1.2rem' }}>
+                {crmModules.slice(0, 2).map((module) => (
+                  <li key={module.id}>{module.title}</li>
+                ))}
+              </ul>
+            </article>
           </>
         ) : null}
 
@@ -92,6 +106,14 @@ export default function RoleDashboardPage({ params }: RolePageProps) {
                   <li key={order.id}>
                     Orden {order.id} · {order.status.toUpperCase()} · {order.items.length} productos
                   </li>
+                ))}
+              </ul>
+            </article>
+            <article className="card">
+              <h3>Portal de clientes</h3>
+              <ul style={{ margin: 0, paddingLeft: '1.2rem' }}>
+                {customerPortalFeatures.map((feature) => (
+                  <li key={feature.id}>{feature.title}</li>
                 ))}
               </ul>
             </article>
@@ -120,6 +142,14 @@ export default function RoleDashboardPage({ params }: RolePageProps) {
                 ))}
               </ul>
             </article>
+            <article className="card">
+              <h3>Tickets en seguimiento</h3>
+              <ul style={{ margin: 0, paddingLeft: '1.2rem' }}>
+                {supportTickets.slice(0, 3).map((ticket) => (
+                  <li key={ticket.id}>{ticket.subject} · {ticket.status.toUpperCase()}</li>
+                ))}
+              </ul>
+            </article>
           </>
         ) : null}
 
@@ -145,6 +175,24 @@ export default function RoleDashboardPage({ params }: RolePageProps) {
                 ))}
               </ul>
             </article>
+            <article className="card">
+              <h3>Clientes clave</h3>
+              <ul style={{ margin: 0, paddingLeft: '1.2rem' }}>
+                {customerAccounts.slice(0, 3).map((account) => {
+                  const healthLabel =
+                    account.health === 'excellent'
+                      ? 'Excelente'
+                      : account.health === 'good'
+                        ? 'Buena'
+                        : 'En riesgo';
+                  return (
+                    <li key={account.id}>
+                      {account.companyName} · Salud {healthLabel}
+                    </li>
+                  );
+                })}
+              </ul>
+            </article>
           </>
         ) : null}
 
@@ -166,6 +214,17 @@ export default function RoleDashboardPage({ params }: RolePageProps) {
                 <li>Auditar actividad crítica y accesos privilegiados.</li>
                 <li>Configurar respaldos automáticos de base de datos.</li>
                 <li>Actualizar integraciones con pasarelas de pago y branding.</li>
+              </ul>
+            </article>
+            <article className="card">
+              <h3>Metas y actividad</h3>
+              <ul style={{ margin: 0, paddingLeft: '1.2rem' }}>
+                {salesGoals.slice(0, 2).map((goal) => (
+                  <li key={goal.id}>{goal.label}: {goal.progress}%</li>
+                ))}
+                {activityTimeline.slice(0, 2).map((activity) => (
+                  <li key={activity.id}>{activity.description}</li>
+                ))}
               </ul>
             </article>
           </>

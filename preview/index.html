@@ -31,6 +31,8 @@
           <div class="menu">
             <a class="menu-link glass-interactive" href="#productos">Productos</a>
             <a class="menu-link glass-interactive" href="#servicios">Servicios</a>
+            <a class="menu-link glass-interactive" href="#crm">CRM 360°</a>
+            <a class="menu-link glass-interactive" href="#clientes">Clientes</a>
             <a class="menu-link glass-interactive" href="#roles">Roles</a>
             <a class="menu-link glass-interactive" href="#contacto">Contacto</a>
           </div>
@@ -49,7 +51,7 @@
             <p id="company-mission"></p>
             <div class="cta-group">
               <a class="button-primary glass-interactive" href="#roles">Explorar plataforma</a>
-              <a class="button-secondary glass-interactive" href="#contacto">Habla con un experto</a>
+              <a class="button-secondary glass-interactive" href="#crm">Ver CRM en acción</a>
             </div>
             <ul id="hero-highlights" style="margin: 0; padding-left: 1.25rem; color: #cbd5f5;"></ul>
           </div>
@@ -67,6 +69,34 @@
         <div class="container">
           <h2 class="section-title">Servicios profesionales</h2>
           <div class="card-grid" id="service-grid"></div>
+        </div>
+      </section>
+
+      <section id="crm">
+        <div class="container">
+          <h2 class="section-title">CRM operativo para toda tu organización</h2>
+          <div class="card-grid" id="crm-grid"></div>
+        </div>
+      </section>
+
+      <section>
+        <div class="container">
+          <h2 class="section-title">Portal de clientes listo para producción</h2>
+          <div class="card-grid" id="portal-grid"></div>
+        </div>
+      </section>
+
+      <section id="clientes">
+        <div class="container">
+          <h2 class="section-title">Clientes y contratos gestionados en línea</h2>
+          <div class="card-grid" id="customer-grid"></div>
+        </div>
+      </section>
+
+      <section>
+        <div class="container">
+          <h2 class="section-title">Facturación y cobros al día</h2>
+          <div class="card-grid" id="billing-grid"></div>
         </div>
       </section>
 
@@ -198,6 +228,95 @@
           billingCycle: 'Plan mensual',
           highlights: ['Squad dedicado', 'Scrum Masters certificados', 'Deploy continuo'],
         },
+      ];
+
+      const crmModules = [
+        {
+          id: 'crm-sales',
+          title: 'Ventas y pipeline inteligente',
+          description:
+            'Seguimiento de oportunidades con etapas configurables, recordatorios automáticos y proyecciones de ingresos.',
+          highlights: ['Pipeline visual Kanban', 'Pronóstico por trimestre', 'Alertas de estancamiento'],
+          focus: 'Equipos clave: EMPLOYEE, ADMIN',
+        },
+        {
+          id: 'crm-billing',
+          title: 'Facturación y suscripciones',
+          description:
+            'Controla facturas electrónicas, pagos recurrentes y conciliaciones contables con reportes descargables.',
+          highlights: ['Timbrado automático', 'Reintentos de cobro', 'Exportaciones a ERP'],
+          focus: 'Equipos clave: EMPLOYEE, ADMIN',
+        },
+        {
+          id: 'crm-support',
+          title: 'Soporte omnicanal',
+          description:
+            'Gestiona tickets desde correo, chat y WhatsApp con SLA configurables y base de conocimiento integrada.',
+          highlights: ['Enrutamiento inteligente', 'Encuestas NPS automáticas', 'Panel en tiempo real'],
+          focus: 'Equipos clave: EMPLOYEE, ADMIN, SUPERADMIN',
+        },
+      ];
+
+      const customerPortalFeatures = [
+        {
+          id: 'portal-orders',
+          title: 'Pedidos y facturas 24/7',
+          description:
+            'Tus clientes descargan facturas, consultan órdenes y programan renovaciones sin depender del equipo interno.',
+          cta: 'Conoce el portal de clientes',
+        },
+        {
+          id: 'portal-support',
+          title: 'Centro de soporte dedicado',
+          description: 'Ticketing con SLA personalizados, chat en vivo y respuestas sugeridas por IA.',
+          cta: 'Abrir mesa de ayuda',
+        },
+        {
+          id: 'portal-analytics',
+          title: 'Insights personalizados',
+          description:
+            'Dashboards de consumo, licencias y contratos compartidos con tus clientes estratégicos.',
+          cta: 'Compartir tablero',
+        },
+      ];
+
+      const customerAccounts = [
+        {
+          id: 'account-001',
+          companyName: 'Grupo Altavista',
+          contact: 'Laura Méndez · laura@altavista.com',
+          plan: 'Enterprise Cloud',
+          status: 'Activo · Salud excelente',
+          value: '$54,000 USD',
+          tags: ['cloud', 'soporte-premium'],
+          lastInteraction: 'Último contacto: 08/05/2024',
+        },
+        {
+          id: 'account-002',
+          companyName: 'RetailNow',
+          contact: 'Miguel Torres · miguel@retailnow.mx',
+          plan: 'POS + Facturación',
+          status: 'Onboarding · Salud buena',
+          value: '$22,800 USD',
+          tags: ['retail', 'pos'],
+          lastInteraction: 'Último contacto: 07/05/2024',
+        },
+        {
+          id: 'account-003',
+          companyName: 'HealthCare 4.0',
+          contact: 'Mariana López · mariana@healthcare40.com',
+          plan: 'Analytics + Seguridad',
+          status: 'Activo · Salud en riesgo',
+          value: '$37,200 USD',
+          tags: ['salud', 'ia'],
+          lastInteraction: 'Último contacto: 29/04/2024',
+        },
+      ];
+
+      const billingSummaries = [
+        { month: 'Mar 2024', revenue: 48200, invoices: 54, rate: 0.94 },
+        { month: 'Abr 2024', revenue: 51750, invoices: 61, rate: 0.96 },
+        { month: 'May 2024', revenue: 54580, invoices: 64, rate: 0.97 },
       ];
 
       const testimonials = [
@@ -340,6 +459,78 @@
         });
       }
 
+      function populateCrm() {
+        const grid = document.getElementById('crm-grid');
+        crmModules.forEach((module) => {
+          const article = document.createElement('article');
+          article.className = 'card';
+          article.innerHTML = `
+            <span class="badge">${module.title}</span>
+            <p>${module.description}</p>
+            <ul style="margin: 0; padding-left: 1.25rem;">${module.highlights.map((item) => `<li>${item}</li>`).join('')}</ul>
+            <small style="display: block; margin-top: 1rem; color: #1d4ed8;">${module.focus}</small>
+          `;
+          grid.appendChild(article);
+        });
+      }
+
+      function populatePortal() {
+        const grid = document.getElementById('portal-grid');
+        customerPortalFeatures.forEach((feature) => {
+          const article = document.createElement('article');
+          article.className = 'card';
+          article.innerHTML = `
+            <h3>${feature.title}</h3>
+            <p>${feature.description}</p>
+            <span class="button-secondary glass-interactive" role="link">${feature.cta}</span>
+          `;
+          grid.appendChild(article);
+        });
+      }
+
+      function populateCustomers() {
+        const grid = document.getElementById('customer-grid');
+        customerAccounts.forEach((account) => {
+          const article = document.createElement('article');
+          article.className = 'card';
+          article.innerHTML = `
+            <span class="badge">${account.plan}</span>
+            <h3>${account.companyName}</h3>
+            <p>${account.contact}</p>
+            <p style="margin: 0;">${account.status}</p>
+            <p style="margin: 0; color: #1d4ed8; font-weight: 600;">Valor anual: ${account.value}</p>
+            <small style="display: block; margin-top: 0.75rem; color: #334155;">${account.lastInteraction}</small>
+            <div class="tag-list">${account.tags.map((tag) => `<span class="tag">#${tag}</span>`).join('')}</div>
+          `;
+          grid.appendChild(article);
+        });
+      }
+
+      function populateBilling() {
+        const grid = document.getElementById('billing-grid');
+        billingSummaries.forEach((billing) => {
+          const article = document.createElement('article');
+          article.className = 'card';
+          article.innerHTML = `
+            <h3>${billing.month}</h3>
+            <p>Ingresos: ${formatCurrency(billing.revenue, 'USD')}</p>
+            <p>Facturas emitidas: ${billing.invoices}</p>
+            <p>Tasa de cobro: ${(billing.rate * 100).toFixed(0)}%</p>
+          `;
+          grid.appendChild(article);
+        });
+
+        const helper = document.createElement('article');
+        helper.className = 'card';
+        helper.style.background = 'rgba(37, 99, 235, 0.12)';
+        helper.innerHTML = `
+          <h3>Automatiza tu ciclo de cobro</h3>
+          <p>Integra tu pasarela de pago favorita, programa recordatorios inteligentes y descarga conciliaciones para tu equipo contable.</p>
+          <span class="button-primary glass-interactive" role="link">Ver tablero financiero</span>
+        `;
+        grid.appendChild(helper);
+      }
+
       function populateTestimonials() {
         const grid = document.getElementById('testimonial-grid');
         testimonials.forEach((testimonial) => {
@@ -415,6 +606,10 @@
       populateHero();
       populateProducts();
       populateServices();
+      populateCrm();
+      populatePortal();
+      populateCustomers();
+      populateBilling();
       populateTestimonials();
       populatePartners();
       populateContact();
