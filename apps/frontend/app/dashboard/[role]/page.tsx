@@ -15,6 +15,7 @@ import {
   salesGoals,
   activityTimeline,
   type RolePermission,
+  formatCurrency,
 } from '@jeduardoes/shared';
 
 const allowedRoles = ['guest', 'customer', 'employee', 'admin', 'superadmin'] as const;
@@ -94,7 +95,7 @@ export default function RoleDashboardPage({ params }: RolePageProps) {
               <ul style={{ margin: 0, paddingLeft: '1.2rem' }}>
                 {catalogProducts.slice(0, 3).map((product) => (
                   <li key={product.id}>
-                    {product.name} · {product.currency} {product.price.toLocaleString('es-MX', { minimumFractionDigits: 2 })}
+                    {product.name} · {formatCurrency(product.price, product.currency)}
                   </li>
                 ))}
               </ul>
@@ -127,7 +128,7 @@ export default function RoleDashboardPage({ params }: RolePageProps) {
               <ul style={{ margin: 0, paddingLeft: '1.2rem' }}>
                 {salesPipeline.map((sale) => (
                   <li key={sale.id}>
-                    {sale.customerName} · {sale.status === 'completed' ? 'Completada' : sale.status === 'pending' ? 'Pendiente' : 'Reembolsada'}
+                    {sale.customerName} · {sale.status === 'completed' ? 'Completada' : sale.status === 'pending' ? 'Pendiente' : 'Reembolsada'} · {formatCurrency(sale.total)}
                   </li>
                 ))}
               </ul>
@@ -137,7 +138,7 @@ export default function RoleDashboardPage({ params }: RolePageProps) {
               <ul style={{ margin: 0, paddingLeft: '1.2rem' }}>
                 {invoices.map((invoice) => (
                   <li key={invoice.id}>
-                    {invoice.id} · {invoice.currency} {invoice.total.toLocaleString('es-MX', { minimumFractionDigits: 2 })}
+                    {invoice.id} · {formatCurrency(invoice.total, invoice.currency)}
                   </li>
                 ))}
               </ul>

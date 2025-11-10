@@ -13,6 +13,7 @@ import {
   rolePermissions,
   testimonials,
   billingSummaries,
+  formatCurrency,
 } from '@jeduardoes/shared';
 
 const heroHighlights = [
@@ -141,7 +142,7 @@ export default function HomePage() {
                 <h3>{product.name}</h3>
                 <p>{product.description}</p>
                 <strong style={{ fontSize: '1.15rem', color: '#1d4ed8' }}>
-                  {product.currency} {product.price.toLocaleString('es-MX', { minimumFractionDigits: 2 })}
+                  {formatCurrency(product.price, product.currency)}
                 </strong>
                 {product.tags ? (
                   <div className="tag-list">
@@ -168,7 +169,8 @@ export default function HomePage() {
                 <h3>{service.name}</h3>
                 <p>{service.description}</p>
                 <strong style={{ color: '#0f172a' }}>
-                  {service.currency} {service.price.toLocaleString('es-MX')} · {service.billingCycle === 'one-time' ? 'Pago único' : `Plan ${service.billingCycle}`}
+                  {formatCurrency(service.price, service.currency)} ·{' '}
+                  {service.billingCycle === 'one-time' ? 'Pago único' : `Plan ${service.billingCycle}`}
                 </strong>
                 <ul style={{ margin: 0, paddingLeft: '1.25rem', color: '#1f2937' }}>
                   {service.highlights.map((highlight) => (
@@ -201,7 +203,7 @@ export default function HomePage() {
                       : 'En riesgo'}
                 </p>
                 <p style={{ margin: 0, color: '#1d4ed8', fontWeight: 600 }}>
-                  Valor anual: ${account.annualValue.toLocaleString('es-MX', { minimumFractionDigits: 0 })} USD
+                  Valor anual: {formatCurrency(account.annualValue)}
                 </p>
                 <small style={{ display: 'block', marginTop: '0.75rem', color: '#334155' }}>
                   Último contacto: {new Date(account.lastInteraction).toLocaleDateString('es-MX')}
@@ -226,9 +228,7 @@ export default function HomePage() {
             {latestBilling.map((billing) => (
               <article className="card" key={billing.month}>
                 <h3>{billing.month}</h3>
-                <p>
-                  Ingresos: {billing.currency} {billing.revenue.toLocaleString('es-MX', { minimumFractionDigits: 2 })}
-                </p>
+                <p>Ingresos: {formatCurrency(billing.revenue, billing.currency)}</p>
                 <p>Facturas emitidas: {billing.invoicesIssued}</p>
                 <p>Tasa de cobro: {(billing.collectedRate * 100).toFixed(0)}%</p>
               </article>

@@ -12,6 +12,7 @@ import {
   rolePermissions,
   salesPipeline,
   sampleOrders,
+  formatCurrency,
 } from '@jeduardoes/shared';
 
 const roleSummaries = rolePermissions.filter((role) => role.role !== 'guest');
@@ -47,8 +48,7 @@ export default function DashboardOverviewPage() {
             <ul style={{ margin: 0, paddingLeft: '1.2rem' }}>
               {salesPipeline.map((sale) => (
                 <li key={sale.id}>
-                  {sale.customerName} · {sale.status === 'completed' ? 'Completada' : sale.status === 'pending' ? 'Pendiente' : 'Reembolsada'} ·
-                  ${sale.total.toLocaleString('es-MX', { minimumFractionDigits: 2 })}
+                  {sale.customerName} · {sale.status === 'completed' ? 'Completada' : sale.status === 'pending' ? 'Pendiente' : 'Reembolsada'} · {formatCurrency(sale.total)}
                 </li>
               ))}
             </ul>
@@ -68,7 +68,7 @@ export default function DashboardOverviewPage() {
             <ul style={{ margin: 0, paddingLeft: '1.2rem' }}>
               {invoices.map((invoice) => (
                 <li key={invoice.id}>
-                  Factura {invoice.id} · {invoice.currency} {invoice.total.toLocaleString('es-MX', { minimumFractionDigits: 2 })}
+                  Factura {invoice.id} · {formatCurrency(invoice.total, invoice.currency)}
                 </li>
               ))}
             </ul>
@@ -99,7 +99,7 @@ export default function DashboardOverviewPage() {
                       : 'En riesgo';
                 return (
                   <li key={account.id}>
-                    {account.companyName} · Valor anual ${account.annualValue.toLocaleString('es-MX')} · Salud {healthLabel}
+                    {account.companyName} · Valor anual {formatCurrency(account.annualValue)} · Salud {healthLabel}
                   </li>
                 );
               })}
@@ -163,7 +163,7 @@ export default function DashboardOverviewPage() {
             <ul style={{ margin: 0, paddingLeft: '1.2rem' }}>
               {billingSummaries.map((summary) => (
                 <li key={summary.month}>
-                  {summary.month}: {summary.currency} {summary.revenue.toLocaleString('es-MX')} · Cobro{' '}
+                  {summary.month}: {formatCurrency(summary.revenue, summary.currency)} · Cobro{' '}
                   {(summary.collectedRate * 100).toFixed(0)}%
                 </li>
               ))}

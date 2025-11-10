@@ -1,5 +1,18 @@
 export type CurrencyCode = 'USD' | 'EUR' | 'MXN' | 'COP' | 'ARS';
 
+export function formatCurrency(
+  value: number,
+  currency: CurrencyCode | string = 'MXN',
+  locale = 'es-MX',
+): string {
+  return new Intl.NumberFormat(locale, {
+    style: 'currency',
+    currency: typeof currency === 'string' ? currency : (currency as CurrencyCode),
+    minimumFractionDigits: 2,
+    maximumFractionDigits: 2,
+  }).format(value);
+}
+
 export interface Product {
   id: string;
   name: string;
