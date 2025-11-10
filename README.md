@@ -24,3 +24,17 @@ Este proyecto está bajo la licencia MIT.
 
 ## Contacto
 - GitHub: https://github.com/jEduardoEs
+## Sitio corporativo
+
+El directorio `frontend/` contiene un proyecto creado con [Vite](https://vitejs.dev/) + React y TailwindCSS para el sitio corporativo de jEduardoEs.
+
+### Ejecutar localmente
+
+```bash
+cd frontend
+npm install
+npm run dev
+```
+
+La aplicación expone las páginas `Inicio`, `Catálogo`, `Servicios` y `Contacto`, todas con un layout consistente basado en los colores y tipografías corporativas.
+
